@@ -42,7 +42,7 @@ public class OuHeTest {
             e.printStackTrace();
         }*/
 
-        Usb instance = FactoryBean1.getInstance("spring02ouhe.Mp4");
+        Usb instance = FactoryBean1.getInstance("spring02ouhe.Mp4");//spring的底层也是工厂模式
         instance.usbData();
 
     }
