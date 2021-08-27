@@ -1,5 +1,6 @@
 package day03;
 
+import net.sf.log4jdbc.Properties;
 import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ import javax.ws.rs.Encoded;
 
 public class Student {
 
-    @Value("#{stu.name}")
+    @Value("${name}")//  @Value("#{stu.name}")
     private  String name;
 
     @Override
@@ -22,6 +23,6 @@ public class Student {
                 ", age=" + age +
                 '}';
     }
-@Value("#{stu.age}")
+@Value("${age}")//  @Value("#{stu.age}")
     private  String age;
 }
