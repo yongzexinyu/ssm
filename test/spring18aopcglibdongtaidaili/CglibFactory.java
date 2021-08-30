@@ -8,7 +8,7 @@ import org.springframework.cglib.proxy.Enhancer;
 
 import java.lang.reflect.Method;
 
-public class CglibFactory implements MethodInterceptor, Callback {
+public class CglibFactory implements MethodInterceptor,  Callback{
 
     private  Man man;
 

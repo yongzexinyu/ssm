@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+    >
+  <bean id="videoService" class="day05xmlban.VideoServiceImpl"></bean>
+    <bean id="videoAspect" class="day05xmlban.VIdeoAspect"></bean>
+    <aop:config>
+        <aop:pointcut id="msgPc" expression="execution(* day05xmlban.VideoService.boFang(..))"/>
+        <aop:pointcut id="msgPc1" expression="execution(* day05xmlban.VideoService.zanTing(..))"/>
+        <aop:pointcut id="msgPc2" expression="execution(* day05xmlban.VideoService.zhuanJinBi(..))"/>
+        <aop:pointcut id="msgPc3" expression="execution(* day05xmlban.VideoService.noFindVideo(..))"/>
+        <aop:aspect id="msgAspect" ref="videoAspect">
+            <aop:before method="beforeMsg" pointcut-ref="msgPc"/>
+            <aop:after-returning method="afterMsg" pointcut-ref="msgPc1"/>
+            <aop:around method="roundMsg" pointcut-ref="msgPc2"/>
+            <aop:after-throwing method="errorMsg" pointcut-ref="msgPc3" throwing="e"/>
+        </aop:aspect>
+
+    </aop:config>
+</beans>
