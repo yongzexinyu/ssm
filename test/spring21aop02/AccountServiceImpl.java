@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 public class AccountServiceImpl implements  AccountService{
     @Override
     public void findAll() {
-        int i=1/0;
+      //  int i=1/0;
         System.out.println("全查");
-    }
+}
+
+
 }

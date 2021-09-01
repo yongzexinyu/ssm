@@ -21,7 +21,7 @@ public class AopTest {
         //问题：
         //次要业务  不应该出现在这个方法中，我们该怎么实现排号取钱呢？
     }
-    @Test//使用静态代理解决 切面类+主要业务 组合在一起
+    @Test//使用动态代理解决 切面类+主要业务 组合在一起
     public  void test02() {
         BankService bankService = new BankServiceImpl();
 
